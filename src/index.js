@@ -57,6 +57,7 @@ function renderCantryName(date) {
 
 // Виводить інфу про країну якщо в фільтрі одна країна
 function renderCantryInfo(date) {
+  refs.div.innerHTML = '';
   if (date.length === 1) {
     const cantryInfo = date
       .map(
@@ -66,7 +67,6 @@ function renderCantryInfo(date) {
         <p><b>Languages:</b> ${Object.values(languages)} </p>`
       )
       .join('');
-    refs.div.innerHTML = '';
     refs.div.insertAdjacentHTML('afterbegin', cantryInfo);
   }
 }
