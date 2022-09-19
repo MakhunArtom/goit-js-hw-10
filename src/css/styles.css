@@ -18,3 +18,27 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+.country-list {
+  padding: 0;
+}
+
+.countey-element {
+  display: flex;
+  align-items: center;
+}
+
+.countey-element:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.countri-flag {
+  width: 40px;
+  height: 30px;
+
+  margin-right: 10px;
+}
+
+.countri-name {
+  margin: 0;
+}
