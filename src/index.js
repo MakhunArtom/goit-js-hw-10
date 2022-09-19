@@ -20,7 +20,7 @@ function onNameInput(e) {
   if (eventValue === '') {
     refs.ul.innerHTML = '';
     refs.div.innerHTML = '';
-    return [];
+    return;
   }
 
   fetchCountries(eventValue)
