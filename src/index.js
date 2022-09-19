@@ -31,8 +31,11 @@ function onNameInput(e) {
 
 // функція що виводить флаг та назву країни
 function renderCantryName(date) {
+  refs.ul.innerHTML = '';
   // вилазить повідомлення якщо знайшло більше 10 країн
   if (date.length > 10) {
+    refs.ul.innerHTML = '';
+    refs.div.innerHTML = '';
     Notify.info('Too many matches found. Please enter a more specific name.');
     return [];
   }
@@ -46,16 +49,14 @@ function renderCantryName(date) {
         </li>`
     )
     .join('');
-  refs.ul.innerHTML = '';
-  refs.ul.innerHTML = renderLi;
+
+  refs.ul.insertAdjacentHTML('afterbegin', renderLi);
 
   return date;
 }
 
 // Виводить інфу про країну якщо в фільтрі одна країна
 function renderCantryInfo(date) {
-  refs.div.innerHTML = '';
-
   if (date.length === 1) {
     const cantryInfo = date
       .map(
@@ -65,12 +66,14 @@ function renderCantryInfo(date) {
         <p><b>Languages:</b> ${Object.values(languages)} </p>`
       )
       .join('');
-
-    refs.div.innerHTML = cantryInfo;
+    refs.div.innerHTML = '';
+    refs.div.insertAdjacentHTML('afterbegin', cantryInfo);
   }
 }
 
 // Помилка якщо ввели не назву країни
 function countryNotFound() {
+  refs.ul.innerHTML = '';
+  refs.div.innerHTML = '';
   Notify.failure('Oops, there is no country with that name');
 }
